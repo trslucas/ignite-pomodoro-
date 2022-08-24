@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { differenceInSeconds } from 'date-fns'
 import {
   createContext,
@@ -7,7 +8,11 @@ import {
   useReducer,
   useState,
 } from 'react'
+=======
+import { createContext, ReactNode, useReducer, useState } from "react";
+>>>>>>> parent of a5340b3 (Salvando dados no LocalStorage e corrigindo exibição da tabela no histórico)
 import {
+  ActionTypes,
   addNewCycleAction,
   interruptCurrentCycleAction,
   marCurrentCycleAsFinishedAction,
@@ -43,6 +48,7 @@ interface CyclesContextProvidersProps {
 export function CyclesContextProvider({
   children,
 }: CyclesContextProvidersProps) {
+<<<<<<< HEAD
   const [cyclesState, dispatch] = useReducer(
     cyclesReducer,
     {
@@ -76,6 +82,19 @@ export function CyclesContextProvider({
     localStorage.setItem('@ignite-timer:cycles-state-1.0.0', stateJSON)
   }, [cyclesState])
 
+=======
+  const [cyclesState, dispatch] = useReducer(cyclesReducer, {
+    cycles: [],
+    activeCycleId: null,
+  });
+
+  const [amountSecondsPassed, setAmountSecondsPassed] = useState(0);
+
+  const { cycles, activeCycleId } = cyclesState;
+
+  const activeCycle = cycles.find((cycle) => cycle.id === activeCycleId);
+
+>>>>>>> parent of a5340b3 (Salvando dados no LocalStorage e corrigindo exibição da tabela no histórico)
   function setSecondsPassed(seconds: number) {
     setAmountSecondsPassed(seconds)
   }

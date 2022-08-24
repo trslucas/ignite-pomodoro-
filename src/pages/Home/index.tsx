@@ -1,19 +1,34 @@
+<<<<<<< HEAD
 import { HandPalm, Play } from 'phosphor-react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as zod from 'zod'
 import { useContext } from 'react'
+=======
+import { HandPalm, Play } from "phosphor-react";
+import { FormProvider, useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as zod from "zod";
+import { useContext, useState } from "react";
+>>>>>>> parent of a5340b3 (Salvando dados no LocalStorage e corrigindo exibição da tabela no histórico)
 
 import {
   HomeContainer,
   StartCountdownButton,
   StopCountdownButton,
+<<<<<<< HEAD
 } from './styles'
 
 import { Countdown } from './components/Countdown'
 import { NewCycleForm } from './components/NewCycleForm'
 
 import { CyclesContext } from '../../contexts/CyclesContext'
+=======
+} from "./styles";
+import { Countdown } from "./components/Countdown";
+import { NewCycleForm } from "./components/NewCycleForm";
+import { CyclesContext } from "../../contexts/CyclesContext";
+>>>>>>> parent of a5340b3 (Salvando dados no LocalStorage e corrigindo exibição da tabela no histórico)
 
 const newCycleFormValidationSchema = zod.object({
   task: zod.string().min(1, 'Informe a tarefa'),

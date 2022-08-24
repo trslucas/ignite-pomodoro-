@@ -1,5 +1,9 @@
+<<<<<<< HEAD:src/recucers/cycles.ts
 <<<<<<< HEAD:src/recucers/cycles/reducer.ts
 import { produce } from 'immer'
+=======
+import { ActionTypes } from "./actions";
+>>>>>>> parent of a5340b3 (Salvando dados no LocalStorage e corrigindo exibição da tabela no histórico):src/recucers/cycles/reducer.ts
 
 import { ActionTypes } from './actions'
 =======
@@ -8,12 +12,15 @@ interface CyclesState {
   activeCycleId: string | null;
 }
 
+<<<<<<< HEAD:src/recucers/cycles.ts
 export enum ActionTypes {
   ADD_NEW_CYCLE = "ADD_NEW_CYCLE",
   INTERRUPT_CURRENT_CYCLE = "INTERRUPT_CURRENT_CYCLE",
   MARK_CURRENT_CYCLE_AS_FINISHED = "MARK_CURRENT_CYCLE_AS_FINISHED",
 }
 >>>>>>> parent of 81f2c4e (Separando Actions):src/recucers/cycles.ts
+=======
+>>>>>>> parent of a5340b3 (Salvando dados no LocalStorage e corrigindo exibição da tabela no histórico):src/recucers/cycles/reducer.ts
 
 export interface Cycle {
   id: string
@@ -32,6 +39,7 @@ interface CyclesState {
 export function cyclesReducer(state: CyclesState, action: any) {
   switch (action.type) {
     case ActionTypes.ADD_NEW_CYCLE:
+<<<<<<< HEAD:src/recucers/cycles.ts
       return produce(state, (draft) => {
         draft.cycles.push(action.payload.newCycle)
         draft.activeCycleId = action.payload.newCycle.id
@@ -74,6 +82,36 @@ export function cyclesReducer(state: CyclesState, action: any) {
     //     return cycle;
     //   }),
     // };
+=======
+      return {
+        ...state,
+        cycles: [...state.cycles, action.payload.newCycle],
+        activeCycleId: action.payload.newCycle.id,
+      };
+
+    case ActionTypes.INTERRUPT_CURRENT_CYCLE:
+      return {
+        ...state,
+        cycles: state.cycles.map((cycle) => {
+          if (cycle.id === state.activeCycleId) {
+            return { ...cycle, interruptedDate: new Date() };
+          }
+          return cycle;
+        }),
+        activeCycleId: null,
+      };
+
+    case ActionTypes.MARK_CURRENT_CYCLE_AS_FINISHED:
+      return {
+        ...state,
+        cycles: state.cycles.map((cycle) => {
+          if (cycle.id === state.activeCycleId) {
+            return { ...cycle, finishedDate: new Date() };
+          }
+          return cycle;
+        }),
+      };
+>>>>>>> parent of a5340b3 (Salvando dados no LocalStorage e corrigindo exibição da tabela no histórico):src/recucers/cycles/reducer.ts
 
     default:
       return state

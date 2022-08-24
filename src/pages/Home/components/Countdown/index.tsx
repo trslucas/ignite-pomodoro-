@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 import { differenceInSeconds } from 'date-fns'
 import { useContext, useEffect } from 'react'
 import { CyclesContext } from '../../../../contexts/CyclesContext'
 import { CountdownContainer, Separator } from './styles'
+=======
+import { differenceInSeconds } from "date-fns";
+import { useContext, useEffect, useState } from "react";
+import { CyclesContext } from "../../../../contexts/CyclesContext";
+import { CountdownContainer, Separator } from "./styles";
+>>>>>>> parent of a5340b3 (Salvando dados no LocalStorage e corrigindo exibição da tabela no histórico)
 
 export function Countdown() {
   const {
@@ -21,8 +28,13 @@ export function Countdown() {
       interval = setInterval(() => {
         const secondsDifference = differenceInSeconds(
           new Date(),
+<<<<<<< HEAD
           new Date(activeCycle.startDate),
         )
+=======
+          activeCycle.startDate
+        );
+>>>>>>> parent of a5340b3 (Salvando dados no LocalStorage e corrigindo exibição da tabela no histórico)
 
         if (secondsDifference >= totalSeconds) {
           markCurrentCycleAsFinished()

@@ -1,6 +1,19 @@
+<<<<<<< HEAD:src/recucers/cycles/reducer.ts
 import { produce } from 'immer'
 
 import { ActionTypes } from './actions'
+=======
+interface CyclesState {
+  cycles: Cycle[];
+  activeCycleId: string | null;
+}
+
+export enum ActionTypes {
+  ADD_NEW_CYCLE = "ADD_NEW_CYCLE",
+  INTERRUPT_CURRENT_CYCLE = "INTERRUPT_CURRENT_CYCLE",
+  MARK_CURRENT_CYCLE_AS_FINISHED = "MARK_CURRENT_CYCLE_AS_FINISHED",
+}
+>>>>>>> parent of 81f2c4e (Separando Actions):src/recucers/cycles.ts
 
 export interface Cycle {
   id: string

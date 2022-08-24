@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { differenceInSeconds } from 'date-fns'
 import {
   createContext,
@@ -12,6 +13,10 @@ import {
   marCurrentCycleAsFinishedAction,
 } from '../recucers/cycles/actions'
 import { Cycle, cyclesReducer } from '../recucers/cycles/reducer'
+=======
+import { createContext, ReactNode, useReducer, useState } from "react";
+import { ActionTypes, Cycle, cyclesReducer } from "../recucers/cycles";
+>>>>>>> parent of 81f2c4e (Separando Actions)
 
 interface CreateCycleData {
   task: string
@@ -76,7 +81,16 @@ export function CyclesContextProvider({
   }
 
   function markCurrentCycleAsFinished() {
+<<<<<<< HEAD
     dispatch(marCurrentCycleAsFinishedAction())
+=======
+    dispatch({
+      type: ActionTypes.MARK_CURRENT_CYCLE_AS_FINISHED,
+      payload: {
+        activeCycleId,
+      },
+    });
+>>>>>>> parent of 81f2c4e (Separando Actions)
   }
 
   function createNewCycle(data: CreateCycleData) {
@@ -88,13 +102,31 @@ export function CyclesContextProvider({
       startDate: new Date(),
     }
 
+<<<<<<< HEAD
     dispatch(addNewCycleAction(newCycle))
+=======
+    dispatch({
+      type: ActionTypes.ADD_NEW_CYCLE,
+      payload: {
+        newCycle,
+      },
+    });
+>>>>>>> parent of 81f2c4e (Separando Actions)
 
     setAmountSecondsPassed(0)
   }
 
   function interruptCurrentCycle() {
+<<<<<<< HEAD
     dispatch(interruptCurrentCycleAction())
+=======
+    dispatch({
+      type: ActionTypes.INTERRUPT_CURRENT_CYCLE,
+      payload: {
+        activeCycleId,
+      },
+    });
+>>>>>>> parent of 81f2c4e (Separando Actions)
   }
 
   return (
